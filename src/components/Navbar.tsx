@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search } from "lucide-react";
+import { AlignJustify, Search, X } from "lucide-react";
 import { navItems } from "@/constants/navItems";
 
 import Logo from "../../public/icons/logo.svg";
@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-white shadow-sm">
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0">
         <div className="flex justify-between items-center h-[70px]">
           {/* Logo and navigation */}
           <div className="flex items-center">
@@ -82,49 +82,30 @@ const Navbar = () => {
           <div className="xl:hidden flex items-center ">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-0 focus:ring-inset "
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
               {/* Icon when menu is closed */}
-              <svg
+              <AlignJustify
                 className={`${isMenuOpen ? "hidden" : "block"} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              />
+
               {/* Icon when menu is open */}
-              <svg
-                className={`${isMenuOpen ? "block" : "hidden"} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <X className={`${isMenuOpen ? "block" : "hidden"} h-6 w-6`} />
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile menu, show/hide based on menu state */}
-      <div className={`${isMenuOpen ? "block" : "hidden"} xl:hidden `}>
+      <div
+        className={`xl:hidden transform transition-all duration-300 ease-in-out ${
+          isMenuOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-5 pointer-events-none"
+        } absolute top-[70px] left-0 right-0 z-20 bg-white shadow-md`}
+      >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {navItems.map((item) => (
             <Link
