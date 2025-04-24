@@ -1,3 +1,5 @@
+import { Tag } from "@/interfaces/tags.interface";
+
 interface FilterTagsProps {
   tags: Tag[];
 }
