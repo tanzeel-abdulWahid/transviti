@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
 import { AlignJustify, Search, X } from "lucide-react";
 import { navItems } from "@/constants/navItems";
 
@@ -13,7 +14,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-white shadow-sm">
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 xl:px-2">
         <div className="flex justify-between items-center h-[70px]">
           {/* Logo and navigation */}
           <div className="flex items-center">

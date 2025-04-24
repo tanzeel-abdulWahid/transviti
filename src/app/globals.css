@@ -3,4 +3,17 @@
 @theme {
   --color-primary: #0154aa;
   --color-light-gray: #737a91;
+  --color-dark: #333333;
+  --color-light: #585d6e;
+  --color-offwhite: #e9ecef;
+}
+
+@layer components {
+  .heading-text {
+    @apply text-lg font-bold text-dark;
+  }
+
+  .subheading-text {
+    @apply text-sm font-normal text-dark;
+  }
 }

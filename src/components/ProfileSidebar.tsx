@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import CoverPic from "../../public/icons/cover.svg";
 import ProfilePic from "../../public/icons/profilePic.svg";
+import { profileStats } from "@/constants/dummyData";
 
 const ProfileSidebar = () => {
   return (
@@ -36,13 +37,13 @@ const ProfileSidebar = () => {
           </div>
 
           <div className="space-y-1">
-            <h3 className="font-medium text-xl text-gray-900">Albert Flores</h3>
-            <p className="text-sm text-gray-600 leading-tight">
+            <h3 className="heading-text">Albert Flores</h3>
+            <p className="subheading-text">
               Senior Product Designer | UI/UX
               <br />
               Designer | Graphic Designer | Web...
             </p>
-            <p className="text-sm text-gray-500 mt-1">Clinton, Maryland</p>
+            <p className="subheading-text text-light mt-1">Clinton, Maryland</p>
           </div>
         </div>
       </div>
@@ -50,33 +51,30 @@ const ProfileSidebar = () => {
       {/* Stats section */}
       <div className="bg-white rounded-lg shadow-sm">
         <div className="py-2">
-          <div className="flex items-center justify-between px-5 py-3">
-            <span className="text-gray-700">Profile Visitors</span>
-            <span className="text-blue-600 font-medium">140</span>
-          </div>
-
-          <div className="flex items-center justify-between px-5 py-3">
-            <span className="text-gray-700">Resume Viewers</span>
-            <span className="text-blue-600 font-medium">20</span>
-          </div>
-
-          <div className="flex items-center justify-between px-5 py-3">
-            <span className="text-gray-700">My Jobs</span>
-            <span className="text-blue-600 font-medium">88</span>
-          </div>
+          {profileStats?.map((stat, index) => (
+            <div
+              key={index}
+              className={`flex items-center justify-between my-2 py-2 mx-5 ${
+                index != profileStats.length - 1
+                  ? "border-b border-offwhite"
+                  : ""
+              } `}
+            >
+              <span className="subheading-text">{stat.name}</span>
+              <span className="subheading-text text-primary text-base">
+                {stat.value}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Calendar section */}
       <div className="bg-white rounded-lg shadow-sm">
-        <button className="w-full flex items-center justify-between px-5 py-4">
+        <button className="w-full flex items-center justify-between py-3 px-5 cursor-pointer">
           <div>
-            <div className="text-left font-medium text-gray-900">
-              My calendar
-            </div>
-            <div className="text-left text-gray-500 text-sm">
-              Upcoming Interviews
-            </div>
+            <div className="text-left heading-text">My calendar</div>
+            <div className="text-left subheading-text">Upcoming Interviews</div>
           </div>
           <ChevronDown className="h-5 w-5 text-gray-400" />
         </button>

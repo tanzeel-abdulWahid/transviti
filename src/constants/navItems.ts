@@ -1,9 +1,9 @@
 export const navItems = [
-	{ name: "Find Jobs", href: "/find-jobs", active: true },
-	{ name: "Top Companies", href: "/top-companies" },
-	{ name: "Job Tracker", href: "/job-tracker" },
-	{ name: "My Calendar", href: "/calendar" },
-	{ name: "Documents", href: "/documents" },
-	{ name: "Messages", href: "/messages" },
-	{ name: "Notifications", href: "/notifications" },
+	{ name: "Find Jobs", href: "/", active: true },
+	{ name: "Top Companies", href: "/" },
+	{ name: "Job Tracker", href: "/" },
+	{ name: "My Calendar", href: "/" },
+	{ name: "Documents", href: "/" },
+	{ name: "Messages", href: "/" },
+	{ name: "Notifications", href: "/" },
 ];
